@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    
+
+    <title>Assignment 6</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <link href="css/jumbotron-narrow.css" rel="stylesheet">
+
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!--<script src="js/bootstrap.js"></script>-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            
+          </ul>
+        </nav>
+        <img src="imgs/pizza_logo.png">
+      </div>
+    <section id="total" class="hidden">Total: $<span></span></section>
+      <div class="jumbotron">
+       
+        <h1>Mmmm....pizza!</h1>
+        <p class="lead">Melty cheese. Crunchy and chewy crust. Fresh tomato sauce. Sizzling pepperoni. YUM.</p>
+        <p><a class="btn btn-lg btn-danger" href="#" role="button">Order Online!</a></p>
+      </div>
+
+      <div class="row marketing">
+        <div class="col-lg-12">
+          <h2>Place your order now!</h2>
+          <form >
+              <fieldset>
+                 <legend>Delivery Location</legend>
+                  
+                      <label for="fnameD">First Name: </label><input id="fnameD" type="text" class="form-control">
+                  <label for="lnameD">Last Name: </label><input id="lnameD" type="text" class="form-control">
+                  <br>
+                  <label for="addtypeD">Address type</label>
+                  <select id="addtypeD" class="form-control">
+                      <option value="house">House</option>
+                      <option value="apartment">Apartment</option>
+                      <option value="business">Business</option>
+                      <option value="campus">Campus</option>
+                      <option value="hotel">Hotel</option>
+                      <option value="dorm">Dorm Room</option>
+                      <option value="other" id="other">Other</option>
+                  </select>
+                  <section class="hidden" id="extraD">
+                      <label for="other-input">Please specify: </label><input type="text" id="other-inputD" class="form-control">
+                  </section>
+                  
+       
+                  <br>
+                  <label for="streetD">Street address: </label><input type="text" id="streetD" class="form-control">
+                  <br>
+                  <label for="aptnumbD">Aprtment number/Suite/Room Number (if applicable): </label><input type="text" id="aptnumbD" class="form-control">
+                  <br>
+                  <label for="cityD">City: </label><input type="text" id="cityD" class="form-control">
+                  <br>
+                  <label for="stateD">State: </label><input type="text" id="stateD" class="form-control">
+                  <br>
+                  <label for="zipD">Zip code: </label><input type="text" id="zipD" class="form-control">
+                  <br>
+                  <label fo="phoneD">Phone number: </label><input type="text" id="phoneD" class="form-control">
+                  <br>
+                  <label for="emailD">Email: </label><input type="text" id="emailD" class="form-control">
+              </fieldset>
+              <hr>
+              
+<!---------------------------------------------------------------->
+<!---------------------build the order---------------------------->              
+              <fieldset id="build">
+                  <legend>Build Your Order</legend>
+                  <label for="dough" id="dough">STEP 1: What kind of dough would you like?</label><br>
+                  <input type="radio" value="hand" name="dough" id="dough1"> Hand Tossed<br>
+                  <input type="radio" value="thin" name="dough" id="dough2"> Thin Crust<br>
+                  <input type="radio" value="ny" name="dough"> New York Style<br>
+                  <input type="radio" value="gluten" name="dough"> Gluten Free<br>
+                  <label for="size">STEP 2: What size pizza would you like?</label><br>
+                    <select id="size" class="form-control"></select>
+                     <!--<select id="hand-tossed" class="form-control">
+                      <option value="small">Small ($9.99)</option>
+                      <option value="medium">Medium ($12.99)</option>
+                      <option value="large">Large ($14.99)</option>
+                  </select>
+                  
+                  <select id="thin-crust" class="form-control">
+                      <option value="medium">Medium ($11.99)</option>
+                      <option value="large">Large ($13.99)</option>
+                  </select>
+                  
+                  <select id="new-york-style" class="form-control">
+                      <option value="large">Large ($16.99)</option>
+                      <option value="x-large">Extra Large ($19.99)</option>
+                  </select>
+                  
+                  <select id="gluten-free" class="form-control">
+                      <option value="small">Small ($0.99)</option>
+                  </select>-->
+                  
+                  <label for="cheese">STEP 3: How much cheese do you need?</label>
+                  <select id="cheese" class="form-control">
+                      <option value="light">Light: no charge</option>
+                      <option value="normal" selected>Normal: no charge</option>
+                      <option value="extra">Extra: +$2.99</option>
+                      <option value="double">Double: +$3.99</option>
+                  </select>
+                  
+                  <label for="sauce">STEP 4: What kind of sauce would you like?</label>
+                   <select id="sauce" class="form-control">
+                      <option value="regular">Regular tomato: no charge</option>
+                      <option value="heavy">Heavy tomato: +$0.99</option>
+                      <option value="bbq">BBQ: +$1.99</option>
+                  </select>
+                  
+                  <label for="toppings" id="toppings">STEP 5: Which toppings would you like? (+$0.99 each)</label><br>
+                  <input type="checkbox" value="pepperoni" name="toppings">Pepperoni<br>
+                  <input type="checkbox" value="sausage" name="toppings">Sausage<br>
+                  <input type="checkbox" value="ham" name="toppings">Ham<br>
+                  <input type="checkbox" value="bacon" name="toppings">Bacon<br>
+                  <input type="checkbox" value="salami" name="toppings">Salami<br>
+                  <input type="checkbox" value="peppers" name="toppings">Peppers<br>
+                  <input type="checkbox" value="olives" name="toppings">Olives (ew!)<br>
+                  <input type="checkbox" value="jalapenos" name="toppings">Jalapenos<br>
+                  <input type="checkbox" value="mushrooms" name="toppings">Mushrooms<br>
+                  <input type="checkbox" value="pineapple" name="toppings">Pineapple (yum!)<br>
+                  <input type="checkbox" value="onion" name="toppings">Onion<br>  
+                  
+                <input type="submit" value="Finished building pizza" id="finishBtn">
+                
+              </fieldset><hr>
+ <!---------------------------------------------------------------->
+<!------------------------billing info----------------------------->              
+              <fieldset class="hidden" id="billing">
+                  <legend>Billing Information</legend>
+                  <input type="checkbox" value="same-as" id="same-as">Same as delivery<br>
+                  <label for="fnameB">First Name: </label><input id="fnameB" type="text" class="form-control">
+                  <label for="lnameB">Last Name: </label><input id="lnameB" type="text" class="form-control">
+                  <br>
+                  <label for="addtypeB">Address type</label>
+                  <select id="addtypeB" class="form-control">
+                      <option value="house">House</option>
+                      <option value="apartment">Apartment</option>
+                      <option value="business">Business</option>
+                      <option value="campus">Campus</option>
+                      <option value="hotel">Hotel</option>
+                      <option value="dorm">Dorm Room</option>
+                      <option value="other" id="other">Other</option>
+                  </select>
+                  <section class="hidden" id="extraB">
+                      <label for="other-input">Please specify: </label><input type="text" id="other-inputB" class="form-control">
+                  </section>
+                  
+       
+                  <br>
+                  <label for="streetB">Street address: </label><input type="text" id="streetB" class="form-control">
+                  <br>
+                  <label for="aptnumbB">Aprtment number/Suite/Room Number (if applicable): </label><input type="text" id="aptnumbB" class="form-control">
+                  <br>
+                  <label for="cityB">City: </label><input type="text" id="cityB" class="form-control">
+                  <br>
+                  <label for="stateB">State: </label><input type="text" id="stateB" class="form-control">
+                  <br>
+                  <label for="zipB">Zip code: </label><input type="text" id="zipB" class="form-control">
+                  <br>
+                  <label for="phoneB">Phone number: </label><input type="text" id="phoneB" class="form-control">
+                  <br>
+                  
+                  <label for="ccn">Credit Card Number:</label><input type="text" id="ccn" class="form-control"><br>
+                  
+                  <label for="cvc">CVC (security code on back)</label><input type="text" id="cvc" class="form-control"><br>
+                  
+                  <label>Expires:</label>
+                  <select class="form-control" id="ex-month">
+                      <option value="jan">January</option>
+                      <option value="feb">February</option>
+                      <option value="mar">March</option>
+                      <option value="apr">April</option>
+                      <option value="may">May</option>
+                      <option value="jun">June</option>
+                      <option value="jul">July</option>
+                      <option value="aug">August</option>
+                      <option value="sept">September</option>
+                      <option value="oct">October</option>
+                      <option value="nov">November</option>
+                      <option value="dec">December</option>
+                  </select><br>
+                  <select class="form-control" id="ex-year">
+                      <option value="2015">2015</option>
+                      <option value="2016">2016</option>
+                      <option value="2017">2017</option>
+                      <option value="2018">2018</option>
+                      <option value="2019">2019</option>
+                      <option value="2020">2020</option>                  
+                  </select><br>
+                  
+              </fieldset>
+              <input type="submit" value="Pizza Me!" id="submitBtn">
+              
+              
+          </form>
+
+        
+        </div>
+
+       
+      </div>
+
+      <footer class="footer">
+        <p>&copy; CaGoodwin 2015</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+
+    <!--<script src="js/script.js"></script>-->
+    <script src="js/script2.js"></script>
+  </body>
+</html>
